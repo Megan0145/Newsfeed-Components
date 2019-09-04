@@ -50,13 +50,22 @@ function menuMaker(menuData){
   })
   
   menu.appendChild(list);
+  menu.classList.add('menu--initial');
   
-
-  menuBtn.addEventListener('click', () => {
-  menu.classList.toggle('menu--open');
-  ;
+menuBtn.addEventListener('click', () => {
+        if (menu.classList.contains('menu--initial')){
+        menu.classList.remove('menu--initial');
+        menu.classList.add('menu--open');
+      } else if (menu.classList.contains('menu--close')){
+        menu.classList.remove('menu--close');
+        menu.classList.add('menu--open');
+      } else if (menu.classList.contains('menu--open')) {
+        menu.classList.remove('menu--open');
+        menu.classList.add('menu--close');
+      }
 });
-return menu;
+
+ return menu; 
 }
 
 const newMenu = menuMaker(menuItems);

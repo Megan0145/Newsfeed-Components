@@ -21,9 +21,21 @@
 @keyframes slideRight{
    from {
     width: 0px;
+    opacity: 0;
   }
   to {
     width: 350px;
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  from {
+    width: 350px;
+    opacity: 1;
+  }
+  to {
+    width: 0px;
+    opacity: 0;
   }
 }
 /* Below this line is where you will start your work */
@@ -91,11 +103,9 @@
   cursor: pointer;
 }
 .menu {
-  display: none;
   position: fixed;
   top: 75px;
   left: 0;
-  width: 350px;
   height: 100vh;
   /* This give the height 100% of the screen or, '100% of View Height' */
   background-color: #81C784;
@@ -105,10 +115,10 @@
   z-index: 2;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
 
-  
-  animation-name: slideRight;
+  /* animation-name: slideLeft;
   animation-duration: 2s;
-  animation-iteration-count: 1;
+  animation-iteration-count: 1; */
+
 
 }
 
@@ -119,9 +129,25 @@
   padding: 30px 0;
   text-align: center;
 }
+
+.menu--initial {
+  display: none;
+  opacity: 0;
+}
+
 .menu--open {
   display: block;
- 
+  width: 350px;
+  animation-name: slideRight;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+.menu--close {
+  width: 0px;
+  opacity: 0;
+  animation-name: slideLeft;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
 }
 html,
 body {
