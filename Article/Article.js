@@ -169,3 +169,4 @@ function articleMaker(articleData) {
 data.forEach((dataObj) => {
   articlesDiv.appendChild(articleMaker(dataObj));
 });
+

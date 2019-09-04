@@ -35,6 +35,7 @@ let menuItems = [
 */
 
 const menuBtn = document.querySelector('.menu-button');
+const pageBody = document.querySelector('.articles');
 
 function menuMaker(menuData){
   
@@ -65,10 +66,19 @@ menuBtn.addEventListener('click', () => {
       }
 });
 
+pageBody.addEventListener('click', () => {
+  if (menu.classList.contains('menu--open')) {
+    menu.classList.remove('menu--open');
+    menu.classList.add('menu--close');
+  }
+});
+
  return menu; 
 }
 
 const newMenu = menuMaker(menuItems);
 const header = document.querySelector('.header');
 header.appendChild(newMenu);
+
+
 
