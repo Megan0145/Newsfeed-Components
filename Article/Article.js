@@ -129,19 +129,20 @@ const data = [
 
 const articlesDiv = document.querySelector('.articles');
 
-function articleMaker(data){
+function articleMaker(data) {
   const {title, date, firstParagraph, secondParagraph, thirdParagraph} = data;
+
   const article = document.createElement('div');
   const articleDate = document.createElement('p');
   const heading = document.createElement('h2');
   const [p1, p2, p3] = ['p', 'p', 'p']
-    .map(element => document.createElement(element));
+  .map(element => document.createElement(element));
   const btn = document.createElement('span');
 
   article.classList.add('article');
   articleDate.classList.add('date');
   btn.classList.add('expandButton');
-  
+
   heading.textContent = title;
   articleDate.textContent = date;
   p1.textContent = firstParagraph;
@@ -154,12 +155,13 @@ function articleMaker(data){
     article.classList.toggle('article-open');
   });
 
-  article.appendChild(heading);
-  article.appendChild(articleDate);
-  article.appendChild(p1);
-  article.appendChild(p2);
-  article.appendChild(p3);
-  article.appendChild(btn);
+  article.append(heading, articleDate, p1, p2, p3, btn);
+  // article.appendChild(heading);
+  // article.appendChild(articleDate);
+  // article.appendChild(p1);
+  // article.appendChild(p2);
+  // article.appendChild(p3);
+  // article.appendChild(btn);
 
   return article;
 }
