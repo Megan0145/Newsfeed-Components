@@ -17,6 +17,15 @@
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
 }
+
+@keyframes slideRight{
+   from {
+    width: 0px;
+  }
+  to {
+    width: 350px;
+  }
+}
 /* Below this line is where you will start your work */
 /* It is important to note, you will not be writing any CSS in this file*/
 .header {
@@ -95,7 +104,15 @@
   border-bottom: none;
   z-index: 2;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
+
+  
+  animation-name: slideRight;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+
 }
+
+
 .menu ul li {
   list-style-type: none;
   font-size: 32px;
@@ -104,6 +121,7 @@
 }
 .menu--open {
   display: block;
+ 
 }
 html,
 body {

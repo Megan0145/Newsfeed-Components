@@ -54,11 +54,12 @@ function menuMaker(menuData){
 
   menuBtn.addEventListener('click', () => {
   menu.classList.toggle('menu--open');
+  ;
 });
 return menu;
 }
 
 const newMenu = menuMaker(menuItems);
-
-document.body.appendChild(newMenu);
+const header = document.querySelector('.header');
+header.appendChild(newMenu);
 
