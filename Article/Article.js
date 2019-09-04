@@ -129,8 +129,8 @@ const data = [
 
 const articlesDiv = document.querySelector('.articles');
 
-function articleMaker(data) {
-  const {title, date, firstParagraph, secondParagraph, thirdParagraph} = data;
+function articleMaker(articleData) {
+  const {title, date, firstParagraph, secondParagraph, thirdParagraph} = articleData;
 
   const article = document.createElement('div');
   const articleDate = document.createElement('p');
