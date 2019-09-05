@@ -85,6 +85,20 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'JS DOM Traversal Resources',
+    date: 'Sept 4th, 2019',
+    firstParagraph: `Same an quit most an. Admitting an mr disposing sportsmen. Tried on cause no spoil arise plate. Longer ladies valley get esteem 
+    use led six. Middletons resolution advantages expression themselves partiality so me at. West none hope if sing oh sent tell is. `,
+
+    secondParagraph: `No opinions answered oh felicity is resolved hastened. Produced it friendly my if opinions humoured. Enjoy is wrong folly no
+     taken. It sufficient instrument insipidity simplicity at interested. Law pleasure attended differed mrs fat and formerly. Merely thrown garret her 
+     law danger him son better excuse. Effect extent narrow in up chatty. Small are his chief offer happy had. `,
+
+    thirdParagraph: `So if on advanced addition absolute received replying throwing he. Delighted consisted newspaper of unfeeling as neglected so. 
+    Tell size come hard mrs and four fond are. Of in commanded earnestly resources it. At quitting in strictly up wandered of relation answered felicity. 
+    Side need at in what dear ever upon if. Same down want joy neat ask pain help she. Alone three stuff use law walls fat asked. Near do that he help. `
   }
 ];
 
@@ -112,3 +126,52 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+const articlesDiv = document.querySelector('.articles');
+
+function articleMaker(articleData) {
+  const {title, date, firstParagraph, secondParagraph, thirdParagraph} = articleData;
+
+  const article = document.createElement('div');
+  const articleDate = document.createElement('p');
+  const heading = document.createElement('h2');
+  const [p1, p2, p3] = ['p', 'p', 'p']
+  .map(element => document.createElement(element));
+  const btn = document.createElement('span');
+  const closeBtn = document.createElement('button');
+
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  btn.classList.add('expandButton');
+
+  heading.textContent = title;
+  articleDate.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+  btn.textContent = 'Expand Me!';
+  closeBtn.textContent = 'Remove Me';
+
+  btn.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    article.style.display = 'none';
+  });
+
+  article.append(heading, articleDate, p1, p2, p3, closeBtn, btn);
+  // article.appendChild(heading);
+  // article.appendChild(articleDate);
+  // article.appendChild(p1);
+  // article.appendChild(p2);
+  // article.appendChild(p3);
+  // article.appendChild(btn);
+
+  return article;
+}
+
+data.forEach((dataObj) => {
+  articlesDiv.appendChild(articleMaker(dataObj));
+});
+
